@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CoffeeApp.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+
+        <StackLayout
+            x:Name="HeaderBar"
+            Margin="0,0,0,10"
+            BackgroundColor="#44761D"
+            HorizontalOptions="Fill"
+            MinimumHeightRequest="40"
+            Orientation="Horizontal"
+            VerticalOptions="Start">
+            <Image HorizontalOptions="Center" Source="@drawable/logo.png" />
+            <Label
+                FontFamily="Oswald"
+                FontSize="40"
+                HorizontalTextAlignment="Center"
+                TextColor="WhiteSmoke"
+                VerticalTextAlignment="Center">
+                Кофе и точка
+            </Label>
+        </StackLayout>
+
+        <ScrollView>
+
+            <StackLayout>
+
+                <StackLayout
+                    x:Name="SeasonalBar"
+                    Margin="0,0,0,10"
+                    Orientation="Horizontal">
+                    <StackLayout>
+                        <Label FontAttributes="Bold" FontSize="30">
+                            Это заголовок сезонного предложения
+                        </Label>
+                        <Label FontSize="25">
+                            Это сезонное предложение!
+                        </Label>
+                    </StackLayout>
+                    <Image Source="@drawable/logo.png" />
+                </StackLayout>
+
+                <Label
+                    Margin="0,0,0,10"
+                    FontSize="30"
+                    HorizontalOptions="Center">
+                    Наши отделения
+                </Label>
+
+                <ListView
+                    x:Name="BuildingList"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding Buildings}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Label
+                                            x:Name="Address"
+                                            FontSize="25"
+                                            Text="{Binding Address}" />
+                                        <Label
+                                            x:Name="WorkTime"
+                                            FontSize="25"
+                                            Text="{Binding WorkTime}" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+
+        </ScrollView>
+
+        <Button
+            x:Name="OrderButton"
+            BackgroundColor="#44761D"
+            Clicked="OrderButton_Clicked"
+            Text="Сделать заказ!"
+            VerticalOptions="EndAndExpand" />
+
+    </StackLayout>
+
+</ContentPage>

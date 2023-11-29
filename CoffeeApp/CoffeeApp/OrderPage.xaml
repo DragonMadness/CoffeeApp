@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CoffeeApp.OrderPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+        <StackLayout
+            x:Name="HeaderBar"
+            Margin="0,0,0,10"
+            BackgroundColor="#44761D"
+            HorizontalOptions="Fill"
+            MinimumHeightRequest="40"
+            Orientation="Horizontal"
+            VerticalOptions="Start">
+            <Image HorizontalOptions="Center" Source="@drawable/logo.png" />
+            <Label
+                FontFamily="Oswald"
+                FontSize="40"
+                HorizontalTextAlignment="Center"
+                TextColor="WhiteSmoke"
+                VerticalTextAlignment="Center">
+                Кофе и точка
+            </Label>
+        </StackLayout>
+
+        <StackLayout>
+
+            <Button
+                x:Name="BackButton"
+                Margin="0,0,0,10"
+                BackgroundColor="WhiteSmoke"
+                BorderWidth="0"
+                Clicked="BackButton_Clicked"
+                Text="Назад"
+                TextColor="CadetBlue" />
+
+            <ScrollView>
+
+                <StackLayout>
+                    <Label>Каталог товаров в отделении</Label>
+
+                    <ListView x:Name="CatalogView" ItemsSource="{Binding Catalog}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <StackLayout Orientation="Horizontal">
+                                            <CheckBox Color="#44761D" />
+                                            <Label
+                                                FontSize="25"
+                                                Text="{Binding Name}"
+                                                VerticalOptions="Center" />
+                                            <Label
+                                                FontSize="25"
+                                                HorizontalOptions="EndAndExpand"
+                                                Text="{Binding Price}"
+                                                VerticalOptions="Center" />
+                                        </StackLayout>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+            </ScrollView>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>
