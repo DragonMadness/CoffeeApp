@@ -40,6 +40,34 @@
             <ScrollView>
 
                 <StackLayout>
+
+                    <ListView
+                    x:Name="BuildingView"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding Buildings}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <StackLayout Orientation="Horizontal">
+                                            <RadioButton/>
+                                            <StackLayout>
+                                            <Label
+                                            x:Name="Address"
+                                            FontSize="25"
+                                            Text="{Binding Address}" />
+                                            <Label
+                                            x:Name="WorkTime"
+                                            FontSize="25"
+                                            Text="{Binding WorkTime}" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
                     <Label>Каталог товаров в отделении</Label>
 
                     <ListView x:Name="CatalogView" ItemsSource="{Binding Catalog}">
